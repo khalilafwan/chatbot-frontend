@@ -1,65 +1,43 @@
-# Chatbot UI
+# 🧠 RANCANG BANGUN CHATBOT MULTIMODAL – FRONTEND
 
-A lightweight and modern chat interface for LLM interactions with Markdown support!
+Frontend untuk sistem chatbot multimodal yang dikembangkan sebagai bagian dari tugas akhir berjudul  
+**“Rancang Bangun Fitur Chatbot Multimodal Terintegrasi Teks dan Suara untuk Meningkatkan Pelayanan Nasabah di Bank Nagari.”**
 
-👉 Looking for a version with web search integration?   
-Check out the [`websearch_template`](https://github.com/ChristophHandschuh/chatbot-ui/tree/websearch_template) branch, which includes contributions from [CameliaK](https://github.com/CameliaK)
+---
 
-## Overview
+## 🚀 Teknologi Utama
 
-A minimalist chat interface built with React and TypeScript, designed to be easily integrated with any LLM backend. Features a clean and modern design.
+- ⚛️ **React.js (TypeScript)** – Framework utama untuk pengembangan antarmuka pengguna.  
+- 💎 **Mantine UI** – Library komponen untuk tampilan modern dan responsif.  
+- 🧭 **React Router** – Navigasi antar halaman.  
+- 🌐 **Axios** – Komunikasi HTTP dengan backend berbasis Go (Gin).  
+- 🔐 **React-Auth-Kit** – Autentikasi login dan manajemen sesi pengguna.  
+- 🔊 **AWS SDK (Polly & Transcribe)** – Integrasi Text-to-Speech dan Speech-to-Text.  
 
-![Demo](demo/image.png)
+---
 
-## Getting Started
+## 💡 Fitur Utama
 
-1. Clone the repository
+- 🔑 Login, register, dan logout user dengan JWT.  
+- 💬 Antarmuka percakapan mirip ChatGPT dengan daftar riwayat di sidebar.  
+- 🎙️ *Voice mode* – Chat dengan suara menggunakan AWS Polly & Transcribe.  
+- 💾 Penyimpanan riwayat chat ke MongoDB melalui backend Go.  
+- 🗣️ Fitur *voice change* (ubah gender suara TTS).  
+- 📱 Tampilan *responsive* dan *user-friendly*.  
+
+---
+
+## ⚙️ Cara Menjalankan
+
+Pastikan backend (Go + Flask NLP) sudah berjalan sebelum memulai frontend.
+
 ```bash
-git clone https://github.com/ChristophHandschuh/chatbot-ui.git
-cd chatbot-ui
-```
+# Clone repository
+git clone https://github.com/username/chatbot-frontend.git
+cd chatbot-frontend
 
-2. Install dependencies
-```bash
-npm i
-```
+# Instal dependensi
+npm install
 
-3. Start the development server
-```bash
+# Jalankan aplikasi
 npm run dev
-```
-
-## Test Mode
-
-The project includes a test backend for development and testing purposes. To use the test mode:
-
-1. Navigate to the testbackend directory
-2. Create a Python virtual environment:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
-```
-3. Install the required package:
-```bash
-pip install websockets
-```
-4. Run the test backend:
-```bash
-python test.py
-```
-
-## Credits
-
-This project was built by:
-- [Leon Binder](https://github.com/LeonBinder)
-- [Christoph Handschuh](https://github.com/ChristophHandschuh)
-
-Additional contribution by:
-- [CameliaK](https://github.com/CameliaK) – Implemented web search and integrated it into the LLM prompt
-
-Some code components were inspired by and adapted from [Vercel's AI Chatbot](https://github.com/vercel/ai-chatbot).
-
-## License
-
-This project is licensed under the Apache License 2.0. Please note that some components were adapted from Vercel's open source AI Chatbot project.
-"# chatbot-frontend" 
