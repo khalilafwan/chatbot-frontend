@@ -1,0 +1,200 @@
+.navbar {
+  background-color: #0047AB;
+  height: 100vh;
+  width: 300px;
+  padding: var(--mantine-spacing-md);
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #003a8c;
+  overflow-y: auto;
+  color: white; 
+}
+
+:global(.dark) .navbar {
+  background-color: var(--mantine-color-dark-6);
+  border-right: 1px solid var(--mantine-color-dark-4);
+  color: var(--mantine-color-gray-0);
+}
+
+.section {
+  margin-left: calc(var(--mantine-spacing-md) * -1);
+  margin-right: calc(var(--mantine-spacing-md) * -1);
+  margin-bottom: var(--mantine-spacing-md);
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid var(--mantine-color-gray-3);
+  }
+}
+
+.userSection {
+  margin-top: auto;
+  padding-left: var(--mantine-spacing-md);
+  padding-right: var(--mantine-spacing-md);
+}
+
+.searchCode {
+  font-weight: 700;
+  font-size: 10px;
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
+}
+
+.mainLinks {
+  padding-left: var(--mantine-spacing-md);
+  padding-right: var(--mantine-spacing-md);
+  padding-bottom: var(--mantine-spacing-md);
+}
+
+.mainLink {
+  width: 100%;
+  padding: 10px 14px; /* tambahkan ruang */
+  margin-bottom: 6px;  /* jarak antar item */
+  border-radius: 8px;
+  color: var(--mantine-color-text);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  transition: background-color 0.2s ease;
+  line-height: 1.2; /* biar teks tidak terlalu padat */
+}
+
+.mainLink:hover {
+  background-color: #003a8c;
+}
+
+.mainLinkInner {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.mainLinkIcon {
+  margin-right: var(--mantine-spacing-sm);
+  color: white;
+}
+
+.mainLinkBadge {
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.activeLink {
+  background-color: #003a8c;
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.collections {
+  padding-left: calc(var(--mantine-spacing-md) - 6px);
+  padding-right: calc(var(--mantine-spacing-md) - 6px);
+  padding-bottom: var(--mantine-spacing-md);
+}
+
+.collectionsHeader {
+  padding-left: calc(var(--mantine-spacing-md) + 2px);
+  padding-right: var(--mantine-spacing-md);
+  margin-bottom: 5px;
+  color: white;
+}
+
+.collectionLink {
+  display: block;
+  padding: 8px var(--mantine-spacing-xs);
+  text-decoration: none;
+  border-radius: var(--mantine-radius-sm);
+  font-size: var(--mantine-font-size-xs);
+  line-height: 1;
+  font-weight: 500;
+  color: white;
+  &:hover {
+    background-color: #003a8c;
+    color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-0));
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--mantine-spacing-sm);
+}
+
+.logo {
+  padding: 7px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  background-color: white;
+}
+
+.chatItem {
+  padding: 4px 8px;
+  border-radius: var(--mantine-radius-sm);
+  position: relative;
+}
+
+.chatItem:hover {
+  background-color: #003a8c;
+}
+
+.chatItem :global(.mantine-ActionIcon-root) {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: white;
+}
+
+.chatItem:hover :global(.mantine-ActionIcon-root) {
+  opacity: 1;
+}
+
+.chatItem {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 8px;
+  border-radius: var(--mantine-radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.chatItemContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.chatItem:hover {
+  background-color: var(--mantine-color-gray-light);
+}
+
+.chatItemAction {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chatItem:hover .chatItemAction {
+  opacity: 1;
+}
+
+.link {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatItemAction {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chatItem:hover .chatItemAction {
+  opacity: 1;
+}

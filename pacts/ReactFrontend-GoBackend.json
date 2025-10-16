@@ -1,0 +1,310 @@
+{
+  "consumer": {
+    "name": "ReactFrontend"
+  },
+  "interactions": [
+    {
+      "description": "a DELETE request to /chat/abc123",
+      "providerState": "chat with id abc123 exists",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer mocked-jwt-token"
+        },
+        "method": "DELETE",
+        "path": "/chat/abc123"
+      },
+      "response": {
+        "body": {
+          "message": "Chat deleted successfully"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.message": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a GET request to /chat/abc123",
+      "providerState": "chat with ID abc123 exists",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer mocked-jwt-token"
+        },
+        "method": "GET",
+        "path": "/chat/abc123"
+      },
+      "response": {
+        "body": {
+          "chat_id": "abc123",
+          "messages": [
+            {
+              "content": "Apa itu tabungan simpeda?",
+              "sender": "user",
+              "timestamp": "2025-08-01T12:01:00Z",
+              "type": "text"
+            },
+            {
+              "content": "Tabungan simpeda adalah ...",
+              "sender": "bot",
+              "timestamp": "2025-08-01T12:01:05Z",
+              "type": "text"
+            }
+          ]
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a GET request to /chat/list",
+      "providerState": "user has chat conversations",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer mocked-jwt-token"
+        },
+        "method": "GET",
+        "path": "/chat/list"
+      },
+      "response": {
+        "body": [
+          {
+            "chat_id": "abc123",
+            "chat_title": "Pertanyaan Syarat Buka Tabungan",
+            "created_at": "2025-08-01T12:00:00Z"
+          },
+          {
+            "chat_id": "def456",
+            "chat_title": "Pertanyaan seputar layanan Bank Nagari",
+            "created_at": "2025-08-02T15:30:00Z"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /chat/:chatid with user message",
+      "providerState": "chat room exists with given chatId",
+      "request": {
+        "body": {
+          "message": "Halo, saya ingin tanya tentang tabungan"
+        },
+        "headers": {
+          "Authorization": "Bearer fake-jwt-token",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/chat/abc123xyz"
+      },
+      "response": {
+        "body": {
+          "reply": "Terima kasih atas pertanyaannya."
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.reply": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /login",
+      "providerState": "Pengguna terdaftar dan kredensialnya benar",
+      "request": {
+        "body": {
+          "password": "admin123",
+          "username": "admin"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/login"
+      },
+      "response": {
+        "body": {
+          "token": "mocked-jwt-token",
+          "username": "admin"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /login",
+      "providerState": "user exists and credentials are correct",
+      "request": {
+        "body": {
+          "password": "admin123",
+          "username": "admin"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/login"
+      },
+      "response": {
+        "body": {
+          "token": "mocked-jwt-token",
+          "username": "admin"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /logout",
+      "providerState": "user is logged in",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer mocked-jwt-token",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/logout"
+      },
+      "response": {
+        "body": {
+          "message": "Successfully logged out"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /logout",
+      "providerState": "user telah log in",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer mocked-jwt-token",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/logout"
+      },
+      "response": {
+        "body": {
+          "message": "Sukses log out"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /voice/upload with voice file",
+      "providerState": "Siap menerima unggahan suara dari user",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer fake-jwt-token"
+        },
+        "method": "POST",
+        "path": "/voice/upload"
+      },
+      "response": {
+        "body": {
+          "reply": "Halo, ini respon dari suara Anda."
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.reply": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a POST request to /voice/upload with voice file",
+      "providerState": "ready to receive voice upload",
+      "request": {
+        "headers": {
+          "Authorization": "Bearer fake-jwt-token"
+        },
+        "method": "POST",
+        "path": "/voice/upload"
+      },
+      "response": {
+        "body": {
+          "reply": "Halo, ini respon dari suara Anda."
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.reply": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a PUT request to rename chat abc123",
+      "providerState": "chat with id abc123 exists",
+      "request": {
+        "body": {
+          "title": "Renamed Chat Title"
+        },
+        "headers": {
+          "Authorization": "Bearer mocked-jwt-token",
+          "Content-Type": "application/json"
+        },
+        "method": "PUT",
+        "path": "/chat/abc123"
+      },
+      "response": {
+        "body": {
+          "message": "Chat renamed successfully"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "$.body.message": {
+            "match": "type"
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "15.0.1"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "GoBackend"
+  }
+}

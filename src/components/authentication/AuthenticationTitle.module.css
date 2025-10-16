@@ -1,0 +1,21 @@
+.title {
+  font-family: Outfit, var(--mantine-font-family);
+  font-weight: 500;
+}
+
+.subtitle {
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-sm);
+  text-align: center;
+  margin-top: 5px;
+}
+
+.signInButton {
+  background-color: #0047AB;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.signInButton:hover {
+  background-color: #003a8c;
+}
